@@ -31,5 +31,5 @@ jobs:
         /usr/bin/python3 -m pycodestyle -v BLE_GATT
     - name: Unittests with DBus mock
       run: |
-        coverage run -m unittest -v tests.test_functional
-        coverage report
+        /usr/bin/python3 -m coverage run -m unittest -v tests.test_functional
+        /usr/bin/python3 -m coverage report
