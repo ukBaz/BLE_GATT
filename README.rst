@@ -2,7 +2,7 @@
 BLE GATT
 ========
 
-.. image:: ![Build Status](https://github.com/ukBaz/BLE_GATT/workflows/Python%20package/badge.svg)
+.. image:: ![Tests](https://github.com/ukBaz/BLE_GATT/workflows/Tests/badge.svg)
     :target: https://github.com/ukBaz/BLE_GATT/actions?query=workflow%3A%22Python+package%22
     :alt: Build Status
 
