@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
@@ -28,7 +28,7 @@ jobs:
         if [ -f requirements.txt ]; then /usr/bin/python3 -m pip install -r requirements.txt; fi
     - name: Lint with pycodestyle
       run: |
-        pycodestyle -v BLE_GATT
+        /usr/bin/python3 -m pycodestyle -v BLE_GATT
     - name: Unittests with DBus mock
       run: |
         coverage run -m unittest -v tests.test_functional
