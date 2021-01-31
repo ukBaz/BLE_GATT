@@ -2,6 +2,18 @@
 BLE GATT
 ========
 
+.. image:: ![Build Status](https://github.com/ukBaz/BLE_GATT/workflows/Python%20package/badge.svg)
+    :target: https://github.com/ukBaz/BLE_GATT/actions?query=workflow%3A%22Python+package%22
+    :alt: Build Status
+
+.. image:: https://img.shields.io/pypi/l/bluezero.svg
+   :target: https://github.com/ukBaz/python-bluezero/blob/master/LICENSE
+   :alt: MIT License
+
+.. image:: https://img.shields.io/pypi/v/BLE-GATT.svg
+   :target: https://pypi.python.org/pypi/BLE-GATT/
+   :alt: PyPI Version
+
 Python package for using BlueZ D-Bus API to create a device in the Central role
 
 Goal
