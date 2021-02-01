@@ -36,10 +36,7 @@ setup(
     long_description_content_type='text/x-rst',
 
     # The project's main homepage.
-    url='https://github.com/ukBaz/python-bl'
-        ''
-        ''
-        'e-central',
+    url='https://github.com/ukBaz/BLE_GATT',
 
     # Author details
     author='Barry Byford',
