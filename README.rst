@@ -3,7 +3,7 @@ BLE GATT
 ========
 
 .. image:: https://img.shields.io/pypi/l/bluezero.svg
-   :target: https://github.com/ukBaz/python-bluezero/blob/master/LICENSE
+   :target: https://github.com/ukBaz/BLE_GATT/blob/main/LICENSE
    :alt: MIT License
 
 .. image:: https://img.shields.io/pypi/v/BLE-GATT.svg
