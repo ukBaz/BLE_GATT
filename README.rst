@@ -10,14 +10,10 @@ BLE GATT
    :target: https://pypi.python.org/pypi/BLE-GATT/
    :alt: PyPI Version
 
-..
-    Work around to display GitHub actions svg
-.. raw:: html
+.. image:: ![Test](https://github.com/ukBaz/BLE_GATT/workflows/Tests/badge.svg)
+    :target: https://github.com/ukBaz/BLE_GATT/actions?query=workflow%3ATests
+    :alt: Build Status
 
-    <a href="https://github.com/ukBaz/BLE_GATT/actions?query=workflow%3ATests">
-        <img src="https://github.com/ukBaz/BLE_GATT/workflows/Tests/badge.svg"
-                type="image/svg+xml" alt="Build Status"/></a>
-    <br>
 
 
 Python package for using BlueZ D-Bus API to create a device in the Central role
