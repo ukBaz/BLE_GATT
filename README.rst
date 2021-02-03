@@ -2,10 +2,6 @@
 BLE GATT
 ========
 
-.. image:: ![Tests](https://github.com/ukBaz/BLE_GATT/workflows/Tests/badge.svg)
-    :target: https://github.com/ukBaz/BLE_GATT/actions?query=workflow%3A%22Python+package%22
-    :alt: Build Status
-
 .. image:: https://img.shields.io/pypi/l/bluezero.svg
    :target: https://github.com/ukBaz/python-bluezero/blob/master/LICENSE
    :alt: MIT License
@@ -13,6 +9,16 @@ BLE GATT
 .. image:: https://img.shields.io/pypi/v/BLE-GATT.svg
    :target: https://pypi.python.org/pypi/BLE-GATT/
    :alt: PyPI Version
+
+..
+    Work around to display GitHub actions svg
+.. raw:: html
+
+    <a href="https://github.com/ukBaz/BLE_GATT/actions?query=workflow%3ATests">
+        <img src="https://github.com/ukBaz/BLE_GATT/workflows/Tests/badge.svg"
+                type="image/svg+xml" alt="Build Status"/></a>
+    <br>
+
 
 Python package for using BlueZ D-Bus API to create a device in the Central role
 
@@ -34,6 +40,55 @@ Install
     $ python3 -m venv venv_ble
     $ . venv_ble/bin/activate
     $ pip3 install BLE_GATT
+
+tl;dr
+-----
+
+Example of connecting and reading and writing without
+notifications or asynchronous data
+
+.. code-block:: python
+
+    import BLE_GATT
+
+    ubit_address = 'E5:10:5E:37:11:2d'
+    led_text = 'e95d93ee-251d-470a-a062-fa1922dfa9A8'
+    led_matrix_state = 'e95d7b77-251d-470a-a062-fa1922dfa9a8'
+
+    ubit = BLE_GATT.Central(ubit_address)
+    ubit.connect()
+    ubit.char_write(led_text, b'test')
+    ubit.char_write(led_matrix_state, [1, 2, 4, 8, 16])
+    print(ubit.char_read(led_matrix_state))
+    ubit.disconnect()
+
+Example of connecting and interacting with characteristics asynchronously
+
+.. code-block:: python
+
+    import BLE_GATT
+    from gi.repository import GLib
+
+    ubit_address = 'E9:06:4D:45:FC:8D'
+    uart_rx = '6e400003-b5a3-f393-e0a9-e50e24dcca9e'
+    uart_tx = '6e400002-b5a3-f393-e0a9-e50e24dcca9e'
+
+
+    def notify_handler(value):
+        print(f"Received: {bytes(value).decode('UTF-8')}")
+
+
+    def send_ping():
+        print('sending: ping')
+        ubit.char_write(uart_rx, b'ping\n')
+        return True
+
+
+    ubit = BLE_GATT.Central(ubit_address)
+    ubit.connect()
+    ubit.on_value_change(uart_tx, notify_handler)
+    GLib.timeout_add_seconds(20, send_ping)
+    ubit.wait_for_notifications()
 
 
 Basics of BLE
