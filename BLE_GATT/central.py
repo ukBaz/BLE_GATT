@@ -101,7 +101,8 @@ class Central:
         """
         uuid = uuid.casefold()
         if uuid in self.chrcs:
-            if 'notify' not in self.chrcs[uuid].Flags:
+            if all(('notify' not in self.chrcs[uuid].Flags,
+                    'indicate' not in self.chrcs[uuid].Flags)):
                 raise NotImplementedError(
                     f'Notifications are not implemented on {uuid}'
                 )
