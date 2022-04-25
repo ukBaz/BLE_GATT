@@ -163,6 +163,7 @@ If you don't need to pair, then doing a connect will save the device
 in the Bluetooth information on the machine::
 
     [bluetooth]# connect 11:22:33:44:55:66
+    [Name Of Device]# trust
     [Name Of Device]# disconnect
 
 
